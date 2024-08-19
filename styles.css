@@ -130,6 +130,7 @@ body {
     background-color: rgb(243, 204, 189);
     display: flex;
     padding: 1px;
+    color: black;
 }
 
 .left-container {
@@ -138,16 +139,18 @@ body {
     flex-wrap: wrap;
     padding: 1px;
     justify-content: space-around;
-    align-items: center;
+    align-items: normal;
 }
 
 .left-container button {
-    width: 60px;
-    height: 60px;
-    border-radius: 5px;
+    /* width: 60px;
+    height: 60px; */
+    border-radius: 5px; 
     background-color: pink;
     font-size: 30px;
     border: 2px solid black;
+    flex: 1;
+    min-width: 30%;
 }
 
 .right-container {
