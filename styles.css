@@ -10,6 +10,8 @@ equals rgb(157, 73, 87)
 display/body rgb(243, 204, 189);
 */
 
+* { box-sizing: border-box;}
+
 
 * {
     font-family: "Gaegu", sans-serif;
@@ -130,7 +132,6 @@ body {
     background-color: rgb(243, 204, 189);
     display: flex;
     padding: 1px;
-    color: black;
 }
 
 .left-container {
@@ -151,6 +152,7 @@ body {
     border: 2px solid black;
     flex: 1;
     min-width: 30%;
+    color: black;
 }
 
 .right-container {
@@ -171,6 +173,7 @@ body {
     background-color: rgb(207, 139, 150);
     font-size: 16px;
     border: 2px solid black;
+    color: black;
 }
 
 #equals {
