@@ -1,4 +1,7 @@
-//variable initialisations
+//negatives
+//2 operands at a time
+//dispolay calculation
+// decimals
 let operand1 = null;
 let operand2 = null;
 let operator = null;
@@ -24,11 +27,12 @@ const operate = (a, operator, b) => {
     return operation ? operation(a, b) : null; 
 };
 
-//////// adjusting the display
+//////// adjust the display
 let shouldClearDisplay = false;
 function toggleShouldClearDisplay() {
     shouldClearDisplay = !shouldClearDisplay;
 }
+
 
 const appendToDisplay = function(value) {
     const input = document.getElementById("displayInput");
@@ -69,24 +73,28 @@ const clearPlaceholder = function() {
 }
 
 
-////////doing operation
+////////do operation
 
 const getOperand1 = function(op) {
     const input = document.getElementById("displayInput");
-
-    //getting the first operand
-    if (input.value === "" || isNaN(Number(input.value))) { //handles case when first operand is neg
-        clearDisplay();
-        appendToDisplay(op);
+    if (input.value === "" || isNaN(Number(input.value))) {
+        // Do nothing if there's no valid number
         return;
-    } else {
-        operand1 = Number(input.value);
-        operator = op;
-        clearDisplay();
-        appendToDisplay(op);
-        shouldClearDisplay = true;
     }
+
+    if (operand1 === null) {
+        operand1 = Number(input.value);
+    } else if (operator) {
+        operand2 = Number(input.value);
+        result = operate(operand1, operator, operand2);
+        operand1 = result;
+        appendToDisplay(result);
+    }
+    operator = op;
+    clearDisplay();
+    shouldClearDisplay = true;
 }
+
 
 const processOperation = function() {
     const input = document.getElementById("displayInput");
@@ -99,7 +107,7 @@ const processOperation = function() {
     appendToDisplay(result);
 }
 
-///handling backspace 
+
 
 const backspace = function() {
     const input_value = document.getElementById("displayInput").value;
@@ -108,27 +116,24 @@ const backspace = function() {
     appendToDisplay(new_input);
 }
 
-// Adding keyboard support
-document.addEventListener("keydown", function(event) {
-    event.preventDefault();
+
+// ////keyboard support
+
+const handleKeyboardInput = function(event) {
     const key = event.key;
 
-    if (!isNaN(key)) {
-        appendToDisplay(key);
-    }
-    if (key === '+' || key === '-' || key === '*' || key === '/' || key.toLowerCase() === 'x') {
-        getOperand1(key);
-    }
-    if (key === 'Enter' || key === '=') {
+    if (key === "Enter" || key === "=") {
         processOperation();
-    }
-    if (key === 'Backspace') {
-        backspace();
-    }
-    if (key === 'Escape') {
+    } else if (key === ".") {
+        appendToDisplay(".");
+    } else if (key === "Escape") {
         clearDisplay();
         clearResults();
+    } else if (key === "Backspace") {
+        backspace();
+    } else if (key === '+' || key === '-' || key === '*' || key === '/' || key === '%' || key === "x" || key === "X") {
+        getOperand1(key);
     }
+}
 
-});
-
+document.addEventListener('keydown', handleKeyboardInput);

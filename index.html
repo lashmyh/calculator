@@ -26,17 +26,17 @@
                     <button onclick="appendToDisplay('1')">1</button>
                     <button onclick="appendToDisplay('2')">2</button>
                     <button onclick="appendToDisplay('3')">3</button>
-                    <button onclick="clearDisplay()">C</button>
+                    <button onclick="clearDisplay()" onclick="clearResults()">C</button>
                     <button onclick="appendToDisplay('0')">0</button>
                     <button onclick="appendToDisplay('.')">.</button>
                 </div>
                 <div class="right-container">
                     <button onclick="backspace()">-></button>
-                    <button class="op-btn" onclick="appendToDisplay('x')" onclick="newInput()">x</button>
-                    <button class="op-btn" onclick="appendToDisplay('-')" onclick="newInput()">-</button>
-                    <button class="op-btn" onclick="appendToDisplay('+')" onclick="newInput()">+</button>
-                    <button class="op-btn" onclick="appendToDisplay('/')" onclick="newInput()">%</button>
-                    <button class="op-btn" onclick="processOperation()">=</button>
+                    <button class="op-btn" onclick="getOperand1('x')">x</button>
+                    <button class="op-btn" onclick="getOperand1('-')">-</button>
+                    <button class="op-btn" onclick="getOperand1('+')">+</button>
+                    <button class="op-btn" onclick="getOperand1('/')">%</button>
+                    <button id="equals" onclick="processOperation()">=</button>
                 </div>
             </div>
         </div>
