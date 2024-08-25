@@ -139,15 +139,15 @@ body {
     max-width: 65%;
     flex-wrap: wrap;
     padding: 0.3em;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: normal;
 }
 
 .left-container button {
-    border-radius: 0.3em; 
+    border-radius: 0.3rem; 
     background-color: pink;
-    font-size: 5vw; 
-    border: 0.06em solid black; 
+    font-size: 2rem; 
+    border: 0.1rem solid black; 
     flex: 1;
     min-width: 30%; 
     color: rgb(0, 0, 0);
@@ -168,7 +168,7 @@ body {
     flex: 1;
     margin: 0.2em; 
     background-color: rgb(207, 139, 150);
-    font-size: 2.8vw; 
+    font-size: 1.2rem; 
     border: 0.1em solid black; 
     color: rgb(0, 0, 0);
     
